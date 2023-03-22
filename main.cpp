@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>         // std::string
 #include <locale>
+#include <regex>
 
 using namespace std;
 
@@ -19,7 +20,7 @@ string inputValidator(){
     string guess;
     cout<<"Enter your code: ";
     cin>>guess;
-    while(!isdigit(guess[0]) || guess.length()!=4){
+    while(!regex_match(guess,regex("[1-8]{4}"))){
         cout<<"Please enter exactly 4 digits."<<endl;
         inputValidator();
         break;
